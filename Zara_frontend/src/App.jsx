@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import About from './components/About';
 import ProductList from './components/ProductList';
 import CartModal from './components/CartModal';
 import { CartProvider } from './context/CartContext';
@@ -15,6 +16,7 @@ function App() {
         <main>
           <Hero />
           <ProductList searchQuery={searchQuery} />
+          <About />
         </main>
         <CartModal />
 

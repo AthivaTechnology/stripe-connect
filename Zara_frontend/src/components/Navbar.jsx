@@ -24,7 +24,7 @@ export default function Navbar({ onSearch }) {
                         <button onClick={() => document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-black transition-colors uppercase">MENU</button>
                         <a href="#" className="hover:text-black transition-colors">SPECIALS</a>
                         <a href="#" className="hover:text-black transition-colors">CATERING</a>
-                        <a href="#" className="hover:text-black transition-colors">ABOUT</a>
+                        <button onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-black transition-colors">ABOUT</button>
                     </div>
 
                     <div className="flex items-center gap-6">

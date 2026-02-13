@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="black" stroke-width="8">
+  <circle cx="50" cy="50" r="45" stroke="black" fill="white" />
+  <text x="50" y="65" font-family="serif" font-size="60" text-anchor="middle" fill="black" stroke="none">Z</text>
+</svg>

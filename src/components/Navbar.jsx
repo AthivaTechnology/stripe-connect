@@ -14,7 +14,7 @@ export default function Navbar({ onSearch }) {
                         <Menu className="w-6 h-6 text-gray-800 cursor-pointer hover:text-black transition-colors" />
                         <h1
                             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                            className="text-3xl font-bold tracking-tighter uppercase font-serif cursor-pointer"
+                            className="flex items-center gap-2 text-3xl font-bold tracking-tighter uppercase font-serif cursor-pointer"
                         >
                             Zara
                         </h1>
@@ -23,7 +23,6 @@ export default function Navbar({ onSearch }) {
                     <div className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-gray-600">
                         <button onClick={() => document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-black transition-colors uppercase">MENU</button>
                         <a href="#" className="hover:text-black transition-colors">SPECIALS</a>
-                        <a href="#" className="hover:text-black transition-colors">CATERING</a>
                         <button onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-black transition-colors">ABOUT</button>
                     </div>
 

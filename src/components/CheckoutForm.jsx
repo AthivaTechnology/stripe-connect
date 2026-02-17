@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { createPaymentIntent } from '../services/api';
 
 export default function CheckoutForm({ total, onSuccess }) {
     const stripe = useStripe();
@@ -10,28 +11,39 @@ export default function CheckoutForm({ total, onSuccess }) {
     const handleSubmit = async (event) => {
         event.preventDefault();
         setProcessing(true);
+        setError(null);
 
         if (!stripe || !elements) {
             return;
         }
 
-        const cardElement = elements.getElement(CardElement);
+        try {
+            // 1. Create PaymentIntent on Backend
+            // Convert total to cents
+            const amountInCents = Math.round(total * 100);
+            const { clientSecret } = await createPaymentIntent(amountInCents);
 
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
-            type: 'card',
-            card: cardElement,
-        });
+            // 2. Confirm Payment with Stripe
+            const result = await stripe.confirmCardPayment(clientSecret, {
+                payment_method: {
+                    card: elements.getElement(CardElement),
+                }
+            });
 
-        if (error) {
-            setError(error.message);
-            setProcessing(false);
-        } else {
-            console.log('[PaymentMethod]', paymentMethod);
-            // Simulate backend processing
-            setTimeout(() => {
+            if (result.error) {
+                setError(result.error.message);
                 setProcessing(false);
-                onSuccess();
-            }, 2000);
+            } else {
+                if (result.paymentIntent.status === 'succeeded') {
+                    console.log('[Payment Succeeded]', result.paymentIntent);
+                    // The backend webhook also receives 'payment_intent.succeeded' to fulfill the order securely.
+                    onSuccess();
+                }
+            }
+        } catch (err) {
+            console.error(err);
+            setError(err.message || 'Payment failed');
+            setProcessing(false);
         }
     };
 

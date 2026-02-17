@@ -26,7 +26,7 @@ export const products = [
     {
         id: 4,
         name: "Wagyu Steak",
-        price: 65.00,
+        price: 100.00,
         category: "MAINS",
         image: "https://images.unsplash.com/photo-1546241072-48010ad2862c?auto=format&fit=crop&w=800&q=80",
         description: "A5 Japanese Wagyu, grilled asparagus, and red wine reduction."
@@ -34,7 +34,7 @@ export const products = [
     {
         id: 5,
         name: "Lobster Ravioli",
-        price: 28.00,
+        price: 150.00,
         category: "MAINS",
         image: "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=800&q=80",
         description: "Handmade ravioli stuffed with lobster, served in a saffron cream sauce."
@@ -42,7 +42,7 @@ export const products = [
     {
         id: 6,
         name: "Molten Chocolate Cake",
-        price: 14.00,
+        price: 240.00,
         category: "DESSERT",
         image: "https://images.unsplash.com/photo-1571875257727-256c39da42af?auto=format&fit=crop&w=800&q=80",
         description: "Warm chocolate cake with a molten center, served with vanilla bean ice cream."

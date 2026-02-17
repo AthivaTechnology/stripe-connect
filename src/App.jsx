@@ -6,8 +6,19 @@ import ProductList from './components/ProductList';
 import CartModal from './components/CartModal';
 import { CartProvider } from './context/CartContext';
 
+import Success from './components/Success';
+
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Simple routing for Success page
+  if (window.location.pathname === '/success') {
+    return (
+      <CartProvider>
+        <Success />
+      </CartProvider>
+    );
+  }
 
   return (
     <CartProvider>

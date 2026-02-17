@@ -2,7 +2,7 @@ export const products = [
     {
         id: 1,
         name: "Truffle Mushroom Burger",
-        price: 18.00,
+        price: 100.00,
         category: "MAINS",
         image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80",
         description: "Artisan bun, wagyu beef, black truffle aioli, and swiss cheese."
